@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import { Link } from 'react-router-dom';
+import backgroundImage from '../assets/img.jpg'
 
 const Search = ({ data }) => {
   const [query, setQuery] = useState(data);
@@ -44,9 +45,10 @@ const Search = ({ data }) => {
     searchResults && Array.isArray(searchResults) && searchResults.length > 0;
 
   return (
-    <div className="relative bg-cover bg-center h-full p-3" style={{ 
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images5.alphacoders.com/135/thumb-1920-1355115.jpeg')" 
-      }}>
+    <div 
+          className="relative h-full p-4 bg-cover bg-center bg-fixed transition-opacity duration-1000"
+          style={{ backgroundImage: `url(${backgroundImage})`, opacity: loading ? 0 : 1 }}
+        >
       {/* Hide the query title when there are no results */}
       {query && hasData && (
         <h1 className="text-white p-5 text-3xl font-semibold">{query}</h1>
