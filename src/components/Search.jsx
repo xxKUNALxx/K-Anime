@@ -149,7 +149,7 @@ const Search = ({ data }) => {
             <Link 
               to={`/details/${anime.id}`} 
               key={anime.id} 
-              onClick={handleCardClick} // Clear search and query on click
+              onClick={handleCardClick} 
             >
               <Card 
                 title={anime.title} 

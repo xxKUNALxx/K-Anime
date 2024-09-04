@@ -1,3 +1,5 @@
+
+
 // import React, { useState, useEffect } from 'react';
 // import Search from './Search';
 // import { Link } from 'react-router-dom';
@@ -25,14 +27,16 @@
 
 //     return (
 //         <>
-//             <nav className="bg-gradient-to-r from-blue-900 via-black to-blue-900 text-white h-16 flex items-center px-6 shadow-lg">
-//                 <Link to="/">
-//                     <h1 className="text-4xl font-bold tracking-wide">K-Anime</h1>
-//                 </Link>
-//                 <div id="inputsearch" className="ml-auto">
-//                     <form onSubmit={handleSearch} className="relative flex items-center">
+//             <nav className="bg-gradient-to-r from-blue-900 via-black to-blue-900 text-white h-16 flex flex-col sm:flex-row sm:items-center px-4 sm:px-6 shadow-lg">
+//                 <div className="flex items-center justify-between w-full sm:w-auto">
+//                     <Link to="/">
+//                         <h1 className="text-3xl sm:text-4xl font-bold tracking-wide">K-Anime</h1>
+//                     </Link>
+//                 </div>
+//                 <div id="inputsearch" className="mt-2 sm:mt-0 sm:ml-auto w-full sm:w-auto flex justify-center">
+//                     <form onSubmit={handleSearch} className="relative flex items-center w-full max-w-xs sm:max-w-sm md:max-w-md">
 //                         <input 
-//                             className="bg-gray-900 rounded-full h-10 w-full max-w-[350px] text-gray-200 px-4 border-none focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 ease-in-out"
+//                             className="bg-gray-900 rounded-full h-10 w-full text-gray-200 px-4 border-none focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 ease-in-out"
 //                             placeholder="Search Anime..."
 //                             value={searchValue}
 //                             onChange={handleInputChange}
@@ -57,11 +61,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
     const [searchValue, setSearchValue] = useState('');
     const [showSearchResults, setShowSearchResults] = useState(false);
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         setSearchValue(e.target.value);
@@ -80,12 +85,20 @@ function Navbar() {
         }
     }, [searchValue]);
 
+    const handleLogoClick = (e) => {
+        e.preventDefault();
+        navigate('/', { replace: true });
+        window.location.reload();
+    };
+
     return (
         <>
             <nav className="bg-gradient-to-r from-blue-900 via-black to-blue-900 text-white h-16 flex flex-col sm:flex-row sm:items-center px-4 sm:px-6 shadow-lg">
                 <div className="flex items-center justify-between w-full sm:w-auto">
-                    <Link to="/">
-                        <h1 className="text-3xl sm:text-4xl font-bold tracking-wide">K-Anime</h1>
+                    <Link to="/" onClick={handleLogoClick}>
+                        <h1 className="text-3xl sm:text-4xl font-bold tracking-wide cursor-pointer">
+                            K-Anime
+                        </h1>
                     </Link>
                 </div>
                 <div id="inputsearch" className="mt-2 sm:mt-0 sm:ml-auto w-full sm:w-auto flex justify-center">
