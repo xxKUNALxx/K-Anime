@@ -1,0 +1,9 @@
+/* Main.css */
+.bg-custom {
+    background-color: #000; /* Fallback color */
+    background-image: url('../assets/img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  

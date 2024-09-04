@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../assets/img.jpg';
+import './Main.css'
 import Preloader from './Preloader';
 
 const Main = () => {
@@ -12,8 +12,8 @@ const Main = () => {
     async function getAnimeData() {
       try {
         const res = await fetch(
-          `https://api-consumet-org-gamma-sage.vercel.app/anime/gogoanime/popular`,
-          { cache: "no-store" }
+          'https://api-consumet-org-gamma-sage.vercel.app/anime/gogoanime/popular',
+          { cache: 'no-store' }
         );
         const data = await res.json();
         setAnimeData(data.results);
@@ -35,8 +35,7 @@ const Main = () => {
         <Preloader />
       ) : (
         <div 
-          className="relative h-full p-4 bg-cover bg-center bg-fixed transition-opacity duration-1000"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          className="relative h-full p-4 bg-custom transition-opacity duration-1000"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-75"></div>
           <div className="relative z-10">
