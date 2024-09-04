@@ -15,11 +15,9 @@ const Main = () => {
           `https://api-consumet-org-gamma-sage.vercel.app/anime/gogoanime/popular`,
           { cache: "no-store" }
         );
-        console.log("response received");
         const data = await res.json();
         setAnimeData(data.results);
-        
-       
+
         setTimeout(() => {
           setLoading(false);
         }, 1500);
@@ -38,7 +36,7 @@ const Main = () => {
       ) : (
         <div 
           className="relative h-full p-4 bg-cover bg-center bg-fixed transition-opacity duration-1000"
-          style={{ backgroundImage: `url(${backgroundImage})`, opacity: loading ? 0 : 1 }}
+          style={{ backgroundImage: `url(${backgroundImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-75"></div>
           <div className="relative z-10">
