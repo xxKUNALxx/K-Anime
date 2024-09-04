@@ -1,6 +1,6 @@
-/* Main.css */
+
 .bg-custom {
-    background-color: #000; /* Fallback color */
+    background-color: #000;
     background-image: url('../assets/img.jpg');
     background-size: cover;
     background-position: center;
